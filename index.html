@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Adek ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Musik -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Efek Jatuh -->
+<div id="particles"></div>
+
+<div class="container">
+
+    <!-- GIF -->
+    <img src="https://media.giphy.com/media/Im6d35ebkCIiGzonjI/giphy.gif"
+         class="gif" alt="Birthday">
+
+    <h1>🎂 Happy Birthday Adek 🎂</h1>
+
+    <!-- Efek Ketik -->
+    <div id="typing"></div>
+
+    <button onclick="showWish()">
+        🎁 Buka Hadiah
+    </button>
+
+</div>
+
+<script>
+const text =
+"Selamat ulang tahun adekku tersayang ❤️. Semoga panjang umur, sehat selalu, dimudahkan segala urusan, bahagia setiap hari, dan semua cita-citamu tercapai. Terima kasih sudah menjadi adik yang baik. Jangan lupa selalu tersenyum ya! ✨";
+
+let i = 0;
+function typingEffect(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 50);
+    }
+}
+typingEffect();
+
+function showWish(){
+    alert("🎂 Selamat Ulang Tahun Adek ❤️\nSemoga semua impianmu tercapai!");
+}
+
+// Hati dan bunga jatuh
+function createParticle(){
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+
+    const items = ["❤️","🌸","💖","🌷"];
+    particle.innerHTML = items[Math.floor(Math.random()*items.length)];
+
+    particle.style.left = Math.random()*100+"vw";
+    particle.style.fontSize = (20+Math.random()*20)+"px";
+    particle.style.animationDuration =
+        (4+Math.random()*4)+"s";
+
+    document.body.appendChild(particle);
+
+    setTimeout(()=>{
+        particle.remove();
+    },8000);
+}
+
+setInterval(createParticle,250);
+</script>
+
+</body>
+</html>
